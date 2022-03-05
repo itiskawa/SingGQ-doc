@@ -85,8 +85,7 @@ Inheritance diagram for GQLog::GaussLogRule&lt; T &gt;:</div>
  <div class="center">
   <img src="class_g_q_log_1_1_gauss_log_rule.png" usemap="#GQLog::GaussLogRule_3C_20T_20_3E_map" alt=""/>
   <map id="GQLog::GaussLogRule_3C_20T_20_3E_map" name="GQLog::GaussLogRule_3C_20T_20_3E_map">
-<area href="class_gauss_rule.html" title="An abstract class that defines common functions to different quadrature solvers It has been chosen to..." alt="GaussRule&lt; T &gt;" shape="rect" coords="0,0,197,24"/>
-<area href="class_g_q_log_1_1_gauss_pure_log_rule.html" title="a subclass of GaussLogRule&lt;T&gt; for Gaussian Quadrature Rules with respect to the weight function ln(1/..." alt="GQLog::GaussPureLogRule&lt; T &gt;" shape="rect" coords="0,112,197,136"/>
+<area href="class_gauss_rule.html" title="An abstract class that defines common functions to different quadrature solvers It has been chosen to..." alt="GaussRule&lt; T &gt;" shape="rect" coords="0,0,170,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -117,7 +116,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2c8ccdb5a87d44db5efa8a9096473559"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a095301b81279ab460f27bbb5dfe20855"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
 <tr class="memitem:a095301b81279ab460f27bbb5dfe20855"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_g_q_log_1_1_gauss_log_rule.html#a095301b81279ab460f27bbb5dfe20855">operator()</a> (F f, T a, T b)</td></tr>
-<tr class="memdesc:a095301b81279ab460f27bbb5dfe20855"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies GaussLog quadrature rule to a function over integration interval ]a,b[ Computation is done depending on values of a resp. b.  <a href="class_g_q_log_1_1_gauss_log_rule.html#a095301b81279ab460f27bbb5dfe20855">More...</a><br /></td></tr>
+<tr class="memdesc:a095301b81279ab460f27bbb5dfe20855"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies GaussLog quadrature rule to a function over integration interval ]a,b[ for the weight function ln(x-a) via affine pullback The affine pullback enables us to split the integral into two parts over ]-,1[: log(s(b-a))f(s(b-a)+a) = log(b-a)f(s(b-a)+a) + log(s)f(s(bn-a)+a) The first half is nonsingular, as b&gt;a, and is computable with a GaussLegendreRule&lt;T&gt; instance The second half requires an instance of the developed special quadrature rule.  <a href="class_g_q_log_1_1_gauss_log_rule.html#a095301b81279ab460f27bbb5dfe20855">More...</a><br /></td></tr>
 <tr class="separator:a095301b81279ab460f27bbb5dfe20855"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ca605b9741914d79d1270be62e8cb58"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_q_log_1_1_gauss_log_rule.html">GaussLogRule</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_q_log_1_1_gauss_log_rule.html#a8ca605b9741914d79d1270be62e8cb58">operator=</a> (const <a class="el" href="class_g_q_log_1_1_gauss_log_rule.html">GaussLogRule</a> &amp;glq)</td></tr>
 <tr class="memdesc:a8ca605b9741914d79d1270be62e8cb58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator.  <a href="class_g_q_log_1_1_gauss_log_rule.html#a8ca605b9741914d79d1270be62e8cb58">More...</a><br /></td></tr>
@@ -543,7 +542,7 @@ template&lt;typename F &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Applies GaussLog quadrature rule to a function over integration interval ]a,b[ Computation is done depending on values of a resp. b. </p>
+<p>Applies GaussLog quadrature rule to a function over integration interval ]a,b[ for the weight function ln(x-a) via affine pullback The affine pullback enables us to split the integral into two parts over ]-,1[: log(s(b-a))f(s(b-a)+a) = log(b-a)f(s(b-a)+a) + log(s)f(s(bn-a)+a) The first half is nonsingular, as b&gt;a, and is computable with a GaussLegendreRule&lt;T&gt; instance The second half requires an instance of the developed special quadrature rule. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">F</td><td>: function template type </td></tr>

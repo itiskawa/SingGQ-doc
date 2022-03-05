@@ -124,7 +124,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6e4b154e40718e6de2209013b122ff2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33f539616415cbcf6e180e55e35307f8"><td class="memTemplParams" colspan="2">template&lt;typename F &gt; </td></tr>
 <tr class="memitem:a33f539616415cbcf6e180e55e35307f8"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_g_q_jacobi_1_1_gauss_jacobi_rule.html#a33f539616415cbcf6e180e55e35307f8">operator()</a> (F f, T a, T b) const</td></tr>
-<tr class="memdesc:a33f539616415cbcf6e180e55e35307f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies GaussJacobi quadrature rule to a function over integration interval ]a,b[ Computation is done using affine pullback.  <a href="class_g_q_jacobi_1_1_gauss_jacobi_rule.html#a33f539616415cbcf6e180e55e35307f8">More...</a><br /></td></tr>
+<tr class="memdesc:a33f539616415cbcf6e180e55e35307f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies Gauss-Jacobi quadrature rule to a function over integration interval ]a,b[ w.r. to (x-b)^alpha*(x-a)^beta Computation is done using affine pullback which reduces the problem to a scaled and 'dilated' numerical integration of f.  <a href="class_g_q_jacobi_1_1_gauss_jacobi_rule.html#a33f539616415cbcf6e180e55e35307f8">More...</a><br /></td></tr>
 <tr class="separator:a33f539616415cbcf6e180e55e35307f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08e81d0237eb6dc0e8edd9997d38f53f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_q_jacobi_1_1_gauss_jacobi_rule.html">GaussJacobiRule</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_q_jacobi_1_1_gauss_jacobi_rule.html#a08e81d0237eb6dc0e8edd9997d38f53f">operator=</a> (const <a class="el" href="class_g_q_jacobi_1_1_gauss_jacobi_rule.html">GaussJacobiRule</a> &amp;gq)</td></tr>
 <tr class="memdesc:a08e81d0237eb6dc0e8edd9997d38f53f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator.  <a href="class_g_q_jacobi_1_1_gauss_jacobi_rule.html#a08e81d0237eb6dc0e8edd9997d38f53f">More...</a><br /></td></tr>
@@ -560,7 +560,7 @@ template&lt;typename F &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Applies GaussJacobi quadrature rule to a function over integration interval ]a,b[ Computation is done using affine pullback. </p>
+<p>Applies Gauss-Jacobi quadrature rule to a function over integration interval ]a,b[ w.r. to (x-b)^alpha*(x-a)^beta Computation is done using affine pullback which reduces the problem to a scaled and 'dilated' numerical integration of f. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">F</td><td>: function template type </td></tr>
