@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SingGQ: SingGQ : a C++ Library for Gaussian Quadrature with Singular weights</title>
+<title>My Project: SingGQ : a C++ Library for Gaussian Quadrature with Singular weights</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">SingGQ
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -72,10 +72,10 @@ Dependencies</h2>
 <p >You will also need to have <code>Boost</code> installed, which you can do by typing: </p><div class="fragment"><div class="line">brew install boost</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md2"></a>
 Installation</h1>
-<p >To use this header-ony library, clone this repo and run the following commands in the directory you're cloned to: </p>
+<p >To use this header-ony library, clone this repo by running <code>git clone <a href="https://github.com/itiskawa/singular-gauss-quadrature.git">https://github.com/itiskawa/singular-gauss-quadrature.git</a></code> in your directory of choice and run the following commands in the directory you've cloned to: </p>
 <h2><a class="anchor" id="autotoc_md3"></a>
 Setup with CMake</h2>
-<div class="fragment"><div class="line">$ cd singular-gauss-quad</div>
+<div class="fragment"><div class="line">$ cd singular-gauss-quadrature</div>
 <div class="line">$ mkdir build</div>
 <div class="line">$ cd build</div>
 <div class="line">$ cmake ..</div>
@@ -83,7 +83,7 @@ Setup with CMake</h2>
 </div><!-- fragment --><p> If you get the message <code>Could NOT find Boost (missing: Boost_DIR)</code> or <code>Could NOT find Eigen3 (missing: Eigen3_DIR)</code> when installing, then go back to the previous step and install the dependencies. The <code>sudo</code> is very important, as files will be crated &amp; require admin privileges.</p>
 <h2><a class="anchor" id="autotoc_md4"></a>
 Setup by including</h2>
-<p >As this is a header-only library, you can also dowload <code><a class="el" href="gauss-jacobi_8hpp_source.html">gauss-jacobi.hpp</a></code> and put it into your 'include' file, for exmaple. However, it is important to note the following:</p>
+<p >As this is a header-only library, you can also dowload <code>gauss-jacobi.hpp</code> and put it into your 'include' file, for exmaple. However, it is important to note the following:</p>
 <h1><a class="anchor" id="autotoc_md5"></a>
 Building</h1>
 <h2><a class="anchor" id="autotoc_md6"></a>
@@ -91,22 +91,26 @@ With CMake</h2>
 <p >Your root CMake will need to include the following lines</p>
 <div class="fragment"><div class="line">find_package(SingGQ)</div>
 <div class="line">target_link_libraries(yourprojectname PUBLIC SingGQ::SingGQ)</div>
-</div><!-- fragment --><p >for <code>SingGQ</code> to work. The rest is already handled (dependencies and such).</p>
+</div><!-- fragment --><p> (An example of <code>CMakeLists.txt</code> and <code>main.cpp</code> is given in the <code>test/</code> folder of this repository)</p>
+<p >for <code>SingGQ</code> to work. The rest is already handled (dependencies and such).</p>
 <h2><a class="anchor" id="autotoc_md7"></a>
 As an include</h2>
-<p >You will need to configure your project in such a way that the <code><a class="el" href="gauss-jacobi_8hpp_source.html">gauss-jacobi.hpp</a></code> file can properly include <code>Eigen</code>.</p>
+<p >You will need to configure your project in such a way that the <code>gauss-jacobi.hpp</code> file can properly include <code>Eigen</code>. Of course, you may also just add the .hpp files to an <code>include</code> directory and import them. Just make sure you can successfully import the dependencies beforehand.</p>
 <p ><b>NOTE!</b> <em>You may need to add the include path to Eigen in your environment! The code compiles and runs, but the IDE or editor may fuss about, thus making the experience uncomfortable.</em></p>
 <h1><a class="anchor" id="autotoc_md8"></a>
 Usage</h1>
-<p >Once <code>SingGQ</code> is installed and incuded, import is by typing: </p><div class="fragment"><div class="line">#include &quot;SingGQ/gauss-jacobi.hpp&quot;</div>
-</div><!-- fragment --><p >Each weight function is in its respective namespace. To use Gauss-Jacobi quadrature rules, use the namespace <code>GQJacobi</code>, and for Gauss-Log quadrature rules, use <code>GQLog</code>. Each solver is available from there.</p>
+<p >All documentation is available on <a href="https://itiskawa.github.io/SingGQ-doc/">these Github Pages</a> but a short example is provided for fast usage.</p>
+<p >Once <code>SingGQ</code> is installed and incuded, import is by typing: </p><div class="fragment"><div class="line">#include &lt;SingGQ/gauss-jacobi.hpp&gt;</div>
+</div><!-- fragment --><p> or </p><div class="fragment"><div class="line">#include &lt;SingGQ/gauss-log.hpp&gt;</div>
+</div><!-- fragment --><p> depending on what you need to compute.</p>
+<p >Each weight function is in its respective namespace. To use Gauss-Jacobi quadrature rules, use the namespace <code>GQJacobi</code>, and for Gauss-Log quadrature rules, use <code>GQLog</code>. Each solver is available from there.</p>
 <h2><a class="anchor" id="autotoc_md9"></a>
 Example</h2>
 <p >Say you want to compute the integral of <code>cos</code> with respect to a Chebyshev weight function </p><div class="fragment"><div class="line">//instantiate quadrature rule: 10 nodes</div>
 <div class="line">GQJacobi::GaussChebyshevRule&lt;double&gt; gch(10, -1); // equivalent to GaussJacobiRule&lt;double&gt; gch(10, -0.5, -0.5)</div>
 <div class="line"> </div>
 <div class="line">//compute quadrature</div>
-<div class="line">double cosQuadCheb = gch(cos&lt;double&gt;);</div>
+<div class="line">double cosQuadCheb gch(cos&lt;double&gt;);</div>
 </div><!-- fragment --><p >Lambda notation is also supported</p>
 <div class="fragment"><div class="line">double cosQuadCheb = gch([](double x){return cos(x);})</div>
 </div><!-- fragment --><p >Integral computation over different intervals is possible as well (say over ]0,2[)</p>
